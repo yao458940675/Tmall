@@ -16,8 +16,7 @@ public class PropertyController {
 	@RequestMapping("selectProperty")
 	@ResponseBody
 	public Property selectProperty(){
-		//测试
-		
+
 		return propertyService.selectProperty();
 	}
 }
