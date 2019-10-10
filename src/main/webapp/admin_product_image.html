@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="lib/bootstrap/js/jquery-3.2.1.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/admin_product_image.css" />
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="#">
+				<img src="img/site/tmallbuy.png" alt="Logo" style="width:40px;">
+			</a>
+			<span class="navbar-text">
+			   天猫后台
+			</span>
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">分类管理</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">用户管理</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">订单管理</a>
+				</li>
+
+			</ul>
+		</nav>
+		<nav class="breadcrumb">
+			<a class="breadcrumb-item" href="#">所有分类</a>
+			<a class="breadcrumb-item" href="#">电热水器</a>
+			<a class="breadcrumb-item" href="#">Haier/海尔 EC8003-I/80升洗澡淋浴/储热电热水器防电墙/送货入户</a>
+			<span class="breadcrumb-item active">产品图片管理</span>
+		</nav>
+
+		<form role="form" class="col-md-3.5 col-md-offset-3" id="f1">
+			<div class="form-group">
+				<a href="#" class="list-group-item active">
+					新增产品单个图片
+				</a>
+			</div>
+			<div class="form-group">
+				<p>请选择本地图片 尺寸400X400 为佳</p>
+
+				<input type="file" id="inputfile">
+
+			</div>
+			<div id="but1">
+
+				<button type="button" class="btn btn-success">提交</button>
+			</div>
+		</form>
+		<form role="form" class="col-md-3.5 col-md-offset-4" id="f2">
+			<div class="form-group">
+				<a href="#" class="list-group-item active">
+					<span>新增产品详细图片</span>
+				</a>
+			</div>
+			<div class="form-group">
+				<p>请选择本地图片 宽度790 为佳</p>
+
+				<input type="file" id="inputfile">
+
+			</div>
+			<div id="but2">
+				<button type="button" class="btn btn-success">提交</button>
+			</div>
+
+		</form>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					<div id="table1">
+						<table class="table table-bordered">
+
+							<thead>
+								<tr class="table-success">
+									<th>ID</th>
+									<th>产品单个图片缩略图</th>
+									<th>删除</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>676</td>
+									<td>Bangalore</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+								<tr>
+									<td>676</td>
+									<td>Bangalore</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+								<tr>
+									<td>676</td>
+									<td>Bangalore</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-sm-5">
+					<div id="table2">
+						<table class="table table-bordered">
+
+							<thead>
+								<tr class="table-success">
+									<th>ID</th>
+									<th>产品详情图片缩略图</th>
+									<th>删除</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>682</td>
+									<td>Bangalore</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+								<tr>
+									<td>Sachin</td>
+									<td>Mumbai</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+								<tr>
+									<td>Uma</td>
+									<td>Pune</td>
+									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+</html>
