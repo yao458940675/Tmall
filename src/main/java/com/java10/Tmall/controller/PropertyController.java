@@ -64,4 +64,21 @@ public class PropertyController {
 		return "{\"result\":\"删除成功\"}";
 	}
 	
+	@RequestMapping("getPropertiesById/{id}")
+	@ResponseBody
+	public List<Property> getPropertiesById(@PathVariable int id){
+		
+		return propertyService.getPropertiesById(id);
+		
+	}
+	@RequestMapping("updataPropertieById/{value}/{id}")
+	@ResponseBody
+	public String updataPropertieById(@PathVariable String value,@PathVariable int id){
+		System.out.print("已进入controller");
+		propertyService.updataPropertieById(value, id);
+		return "{\"data\":\"success\"}";
+	}
+	
+	
+	
 }

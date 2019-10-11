@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.java10.Tmall.model.bean.Property;
+import com.java10.Tmall.model.bean.PropertyValue;
 import com.java10.Tmall.model.mapper.PropertyMapper;
 
 @Service
@@ -47,5 +48,15 @@ public class PropertyService {
 	public void deletePropertyById(int id) {
 		// TODO Auto-generated method stub
 		propertyMapper.deletePropertyById(id);
+	}
+	
+	public List<Property> getPropertiesById( int id){
+		return propertyMapper.getPropertiesById(id);
+	}
+	public void updataPropertieById(String value,int id){
+		PropertyValue pv=new PropertyValue();
+		pv.setId(id);
+		pv.setValue(value);
+		propertyMapper.updataPropertieById(pv);
 	}
 }

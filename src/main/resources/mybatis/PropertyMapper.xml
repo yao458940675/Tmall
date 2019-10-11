@@ -35,6 +35,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<resultMap type="PropertyValue" id="VM">
+		<result property="id" column="id"/>
+		<result property="pid" column="pid"/>
+		<result property="ptid" column="ptid"/>
+		<result property="value" column="value"/>
+	</resultMap>
+
+	
+	<resultMap type="Property" id="PVM">
+		<result property="id" column="id"/>
+		<result property="cid" column="cid"/>
+		<result property="name" column="name"/>
+		<association property="propertyValue"  column="id"  javaType="PropertyValue"   resultMap="VM"  >
+			
+		
+		</association>
+	
+	
+	</resultMap>
+	
+	<select id="getPropertiesById" parameterType="int" resultMap="PVM">
+		select * from property,propertyvalue where property.id = propertyvalue.ptid and propertyvalue.pid=#{id}
+	
+	
+	</select>
+	
+	<update id="updataPropertieById" parameterType="PropertyValue">	
+	
+		update PropertyValue
+		set value=#{value}
+		where id=#{id}
+	
+	
+	</update>
+	
+	
+	
 </mapper>
 
 

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.java10.Tmall.model.bean.Property;
+import com.java10.Tmall.model.bean.PropertyValue;
 @Mapper
 public interface PropertyMapper {
 	public Property selectProperty();
@@ -14,4 +15,6 @@ public interface PropertyMapper {
 	public void savePropertyById(String name, int cid);
 	public int selectPropertyByIdName(String name, int cid);
 	public void deletePropertyById(int id);
+	public List<Property> getPropertiesById(int id);
+	public void updataPropertieById(PropertyValue pv);
 }
