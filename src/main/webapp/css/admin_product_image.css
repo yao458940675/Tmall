@@ -1,0 +1,68 @@
+.breadcrumb {
+	margin-top: 20px;
+	width: 1344px;
+	margin-left: 40px;
+}
+
+.form-group p {
+	text-align: center;
+}
+
+span {
+	color: white;
+}
+
+form {
+	width: 400px;
+}
+
+#f1 {
+	position: absolute;
+	left: 210px;
+	
+}
+
+#f2 {
+	position: absolute;
+	right: 210px;
+	
+}
+
+label {
+	text-align: center;
+}
+
+#but1,
+#but2 {
+	text-align: center;
+}
+
+a {
+	text-align:center;
+	line-height:20px;
+	text-decoration: none;
+}
+#f1 a,#f2 a{
+	text-decoration: none;
+	
+	
+}
+#f2 a span{
+	text-align:center;
+}
+#table{
+	padding-top: 350px;
+}
+#table1{
+	margin-top: 300px;
+	margin-left: 40px;
+}
+#table2{
+	margin-top: 300px;
+	position: relative;
+	left: 190px;
+	width: 400px;
+}
+.form-group{
+	text-align: center;
+}
