@@ -16,32 +16,27 @@ form {
 	width: 400px;
 }
 
-#f1 {
-	position: absolute;
-	left: 210px;
-	
+#f1{
+	margin-left: 198px;
 }
-
-#f2 {
-	position: absolute;
-	right: 210px;
-	
+#t1{
+	display: inline;
 }
-
-label {
+#f2{
+	position: absolute;
+	top: 150px;
+	right: 198px;
+}
+/*label {
 	text-align: center;
-}
+}*/
 
 #but1,
 #but2 {
 	text-align: center;
 }
 
-a {
-	text-align:center;
-	line-height:20px;
-	text-decoration: none;
-}
+
 #f1 a,#f2 a{
 	text-decoration: none;
 	
@@ -54,13 +49,14 @@ a {
 	padding-top: 350px;
 }
 #table1{
-	margin-top: 300px;
+	margin-top: 100px;
 	margin-left: 40px;
+	width: 400px;
 }
 #table2{
-	margin-top: 300px;
+	margin-top: 100px;
 	position: relative;
-	left: 190px;
+	left: 200px;
 	width: 400px;
 }
 .form-group{

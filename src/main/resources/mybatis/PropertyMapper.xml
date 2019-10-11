@@ -8,6 +8,85 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectProperty" resultType="Property">
 		select * from property where id=1 
 	</select>
+	
+	<!-- 根据cid查询属性个数 -->
+	<select id="getRecords" resultType="int">
+		select count(*) from property where cid=#{cid} 
+	</select>
+	
+	<select id="getPropertyByCategory" parameterType="map" resultType="Property">
+		select * from property where cid=#{k_cid} 
+		limit #{k_index},#{k_pagesize}
+	</select>
+	
+	<select id="selectPropertyByIdName" resultType="int">
+		select count(*) from property
+		where name=#{0} and cid=#{1}
+	</select>
+	
+	<insert id="savePropertyById" >
+		insert into property (name,cid)
+		values(#{0},#{1})
+	</insert>
+	
+	<delete id="deletePropertyById" parameterType="int">
+		delete from property 
+		where id=#{id}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<resultMap type="PropertyValue" id="VM">
+		<result property="id" column="id"/>
+		<result property="pid" column="pid"/>
+		<result property="ptid" column="ptid"/>
+		<result property="value" column="value"/>
+	</resultMap>
+
+	
+	<resultMap type="Property" id="PVM">
+		<result property="id" column="id"/>
+		<result property="cid" column="cid"/>
+		<result property="name" column="name"/>
+		<association property="propertyValue"  column="id"  javaType="PropertyValue"   resultMap="VM"  >
+			
+		
+		</association>
+	
+	
+	</resultMap>
+	
+	<select id="getPropertiesById" parameterType="int" resultMap="PVM">
+		select * from property,propertyvalue where property.id = propertyvalue.ptid and propertyvalue.pid=#{id}
+	
+	
+	</select>
+	
+	<update id="updataPropertieById" parameterType="PropertyValue">	
+	
+		update PropertyValue
+		set value=#{value}
+		where id=#{id}
+	
+	
+	</update>
+	
+	
+	
 </mapper>
 
 

@@ -52,8 +52,8 @@
 		        <th class="col-2">删除</th>
 		      </tr>
 		    </thead>
-		    <tbody class="w-100">
-		      <tr class="row mx-0">
+		    <tbody class="w-100" id="tbody">
+		      <!-- <tr class="row mx-0">
 		        <td class="col-2">13</td>
 		        <td class="col-6">操作系统</td>
 		        <td class="col-2"><img src="img/icon/brush_16px_562342_easyicon.net.png"/></td>
@@ -83,31 +83,32 @@
 		        <td class="col-2"><img src="img/icon/brush_16px_562342_easyicon.net.png"/></td>
 		        <td class="col-2"><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
 		      </tr>
-		    </tbody>
+		    </tbody> -->
 		</table>
 		</div>
 		<div aria-label="Page navigation example">
+			<input type="hidden" id="pagesum"/>
 			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link" href="#"><<</a>
+				<li class="page-item ">
+					<a class="page-link" href="#" id="start"><<</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#"><</a>
+					<a class="page-link" href="#" id="last"><</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">1</a>
+					<a class="page-link" href="#" id="one">1</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">2</a>
+					<a class="page-link" href="#" id="two">2</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">3</a>
+					<a class="page-link" href="#" id="three">3</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">></a>
+					<a class="page-link" href="#" id="next">></a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">>></a>
+					<a class="page-link" href="#" id="final">>></a>
 				</li>
 			</ul>
 		</div>
@@ -120,21 +121,21 @@
 				  <h6 class="card-header">新增属性</h5>
 				  <div class="card-body">
 				  	<form>
-					<div class="form-group row">
-						<label for="categoryName" class="col-sm-4 col-form-label">属性名称</label>
-						<div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-							<input type="text" class="form-control" id="categoryName" placeholder="属性名称">
+						<div class="form-group row">
+							<label for="propertyName" class="col-sm-4 col-form-label">属性名称</label>
+							<div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+								<input type="text" class="form-control" id="propertyName" placeholder="属性名称">
+							</div>
 						</div>
-					</div>
-
-					<div class="form-group row">
-						<div class="col-sm-4">
+	
+						<div class="form-group row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-4">
+								<button type="button" class="btn btn-primary btn-block" id="button">提交</button>
+							</div>
 						</div>
-						<div class="col-sm-4">
-							<button type="button" class="btn btn-primary btn-block">提交</button>
-						</div>
-					</div>
-				</form>
+					</form>
 				  </div>
 				</div>
 			</div>
