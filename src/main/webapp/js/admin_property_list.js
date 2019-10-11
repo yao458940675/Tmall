@@ -19,6 +19,7 @@ $(function(){
 		success:function(msg){			
 			console.log(msg);			
 			$("#pagesum").val(msg);
+			//分页123的隐藏
 			if(msg<3){
 				$("#three").parent().hide();
 			}
@@ -29,7 +30,7 @@ $(function(){
 		}
 	});
 	
-	//分页123的隐藏
+	
 	
 	
 	
@@ -104,7 +105,22 @@ $(function(){
 		$("#final,#next").parent().attr("class","page-item disabled");
 	})
 	
-	
+	//增加属性
+	$("#button").click(function(){
+		if($("#propertyName").val()==""){
+			alert("请输入属性名");
+		}else{
+			$.ajax({
+				type:"post",
+				url:"savePropertyById/"+$("#propertyName").val()+"/"+cid,
+				data:{},
+				dataType:"json",
+				success:function(msg){
+					console.log("add"+msg);
+				}
+			});
+		}
+	})
 	
 	
 	
