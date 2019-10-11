@@ -49,7 +49,7 @@ $(function(){
 			        "<td class='col-2'>"+msg[i].id+"</td>"+
 			        "<td class='col-6'>"+msg[i].name+"</td>"+
 			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png'/></td>"+
-			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'/></td></tr>"
+			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'  data-id='"+msg[i].id+"' class='bin' /></td></tr>"
 			        )
 				}
 				
@@ -142,7 +142,22 @@ $(function(){
 		}
 	})
 	
-	
+	//点击垃圾桶删除，页面后追加元素事件绑定
+	$(document).on("click",".bin",function(){
+		var id=$(this).attr("data-id");
+		$.ajax({
+			type:"post",
+			url:"deletePropertyById/"+id,
+			data:{},
+			dataType:"json",
+			success:function(msg){
+				console.log("deletePropertyById："+msg);
+				alert(msg.result);
+				location.reload();
+			}
+		});
+		
+	})
 	
 	
 	

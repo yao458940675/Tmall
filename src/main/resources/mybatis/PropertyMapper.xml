@@ -29,7 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{0},#{1})
 	</insert>
 	
-	
+	<delete id="deletePropertyById" parameterType="int">
+		delete from property 
+		where id=#{id}
+	</delete>
 	
 	
 </mapper>

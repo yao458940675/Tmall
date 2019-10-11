@@ -43,4 +43,9 @@ public class PropertyService {
 		// TODO Auto-generated method stub
 		return propertyMapper.selectPropertyByIdName(name,cid);
 	}
+
+	public void deletePropertyById(int id) {
+		// TODO Auto-generated method stub
+		propertyMapper.deletePropertyById(id);
+	}
 }

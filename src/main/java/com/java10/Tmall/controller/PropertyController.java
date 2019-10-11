@@ -57,4 +57,11 @@ public class PropertyController {
 		return "{\"result\":\"增加成功\"}";
 	}
 	
+	@RequestMapping("deletePropertyById/{id}")
+	@ResponseBody
+	public String deletePropertyById(@PathVariable int id){
+		propertyService.deletePropertyById(id);
+		return "{\"result\":\"删除成功\"}";
+	}
+	
 }
