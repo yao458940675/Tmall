@@ -63,172 +63,45 @@
 					<th width="50px">删除</th>
 				</tr>
 			</thead>
-			<tbody>
-				
-					<tr>
-						<td>91</td>
-						<td>
-						
-						
-							<img width="40px" src="img/chanpin/1.jpg">
-						
-						
-						</td>
-						<td>夏普屏PANDA/熊猫 LE39D71S 39英寸智能WiFi液晶平板电视40 42 43</td>
-						<td></td>
-						<td>2499.0</td>
-						<td>1874.25</td>
-						<td>75</td>
-						<td>
-							
-							<a href="admin_productImage_list?pid=90"><span
-								class="glyphicon glyphicon-picture"></span></a>
-							
-						</td>
-						<td><a href="admin_product_editPropertyValue?id=91"><span
-								class="glyphicon glyphicon-th-list"></span></a></td>
-						
-						<td><a href="admin_product_edit?id=91"><span
-								class="glyphicon glyphicon-edit"></span></a></td>
-						<td><a deleteLink="true"
-							href="admin_product_delete?id=91"><span
-								class=" 	glyphicon glyphicon-trash"></span></a></td>
 
-					</tr>
+			<tbody id="tbody">
 				
-					<tr>
-						<td>90</td>
-						<td>
-						
-						
-							<img width="40px" src="img/chanpin/2.jpg">
-						
-						
-						</td>
-						<td>Changhong/长虹 65S1安卓智能12核65英寸网络平板LED液晶电视机70</td>
-						<td>屏大影院 高配12核 安卓智能</td>
-						<td>4499.01</td>
-						<td>3824.16</td>
-						<td>84</td>
-						<td><a href="admin_productImage_list?pid=90"><span
-								class="glyphicon glyphicon-picture"></span></a></td>
-						<td><a href="admin_product_editPropertyValue?id=90"><span
-								class="glyphicon glyphicon-th-list"></span></a></td>
-						
-						<td><a href="admin_product_edit?id=90"><span
-								class="glyphicon glyphicon-edit"></span></a></td>
-						<td><a deleteLink="true"
-							href="admin_product_delete?id=90"><span
-								class=" 	glyphicon glyphicon-trash"></span></a></td>
-
-					</tr>
-				
-					<tr>
-						<td>89</td>
-						<td>
-						
-						
-							<img width="40px" src="img/chanpin/3.jpg">
-						
-						
-						</td>
-						<td>Hisense/海信 LED40EC520UA 40英寸4K智能平板液晶电视机WIFI网络</td>
-						<td>周末 特惠 2189 元还送 精美礼品</td>
-						<td>2399.0</td>
-						<td>1439.4</td>
-						<td>82</td>
-						<td><a href="admin_productImage_list?pid=89"><span
-								class="glyphicon glyphicon-picture"></span></a></td>
-						<td><a href="admin_product_editPropertyValue?id=89"><span
-								class="glyphicon glyphicon-th-list"></span></a></td>
-						
-						<td><a href="admin_product_edit?id=89"><span
-								class="glyphicon glyphicon-edit"></span></a></td>
-						<td><a deleteLink="true"
-							href="admin_product_delete?id=89"><span
-								class=" 	glyphicon glyphicon-trash"></span></a></td>
-
-					</tr>
-				
-					<tr>
-						<td>88</td>
-						<td>
-						
-						
-							<img width="40px" src="img/chanpin/4.jpg">
-						
-						
-						</td>
-						<td>Hisense/海信 LED49EC320A 49吋led液晶电视机智能网络平板电视50</td>
-						<td>新品特惠 十核智能 内置WiFi 咨询有惊喜</td>
-						<td>2799.0</td>
-						<td>1679.4</td>
-						<td>90</td>
-						<td><a href="admin_productImage_list?pid=88"><span
-								class="glyphicon glyphicon-picture"></span></a></td>
-						<td><a href="admin_product_editPropertyValue?id=88"><span
-								class="glyphicon glyphicon-th-list"></span></a></td>
-						
-						<td><a href="admin_product_edit?id=88"><span
-								class="glyphicon glyphicon-edit"></span></a></td>
-						<td><a deleteLink="true"
-							href="admin_product_delete?id=88"><span
-								class=" 	glyphicon glyphicon-trash"></span></a></td>
-
-					</tr>
-				
-					<tr>
-						<td>87</td>
-						<td>
-						
-						
-							<img width="40px" src="img/chanpin/5.jpg">
-						
-						
-						</td>
-						<td>Konka/康佳 LED32S1卧室32吋安卓智能无线WIFI网络液晶平板电视机</td>
-						<td>32吋电视机 8核智能 网络 全国联保 送货上门</td>
-						<td>1699.0</td>
-						<td>1104.35</td>
-						<td>98</td>
-						<td><a href="admin_productImage_list?pid=87"><span class="glyphicon glyphicon-picture"></span></a></td>
-						<td><a href="admin_product_editPropertyValue?id=87"><span class="glyphicon glyphicon-th-list"></span></a></td>
-						
-						<td><a href="admin_product_edit?id=87"><span class="glyphicon glyphicon-edit"></span></a></td>
-						<td><a deleteLink="true"
-							href="admin_product_delete?id=87"><span
-								class=" 	glyphicon glyphicon-trash"></span></a></td>
-
-					</tr>
+					
 				
 			</tbody>
 		</table>
 	</div>
 		<div aria-label="Page navigation example">
+			<input type="hidden" id="pagesum"/>
 			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link" href="#"><<</a>
+				<li class="page-item ">
+					<a class="page-link"  id="start"><<</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#"><</a>
+					<a class="page-link" href="#" id="last"><</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">1</a>
+					<a class="page-link"  id="one">1</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">2</a>
+					<a class="page-link"   id="two">2</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">3</a>
+					<a class="page-link"  id="three">3</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">></a>
+					<a class="page-link" href="#" id="next">></a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">>></a>
-				</li>
-			</ul>
-		</div>
+					<a class="page-link" href="#" id="final">>></a>
+
+			<tbody id="tbody">
+				
+					
+				
+			</tbody>
+		</table>
+	</div>
 		
 		
 		<div class="row">

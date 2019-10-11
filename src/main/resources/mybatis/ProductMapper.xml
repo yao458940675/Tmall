@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select p.*,c.name cname,pro.id proid
 		from product p,category c,productimage pro
 		where p.cid=c.id and p.id=pro.pid
+		limit #{k_beginIndex},#{k_pagesize}
 		
 	</select>
 	<resultMap type="Product" id="ProductRes">
