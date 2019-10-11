@@ -11,6 +11,7 @@ $(function(){
 			console.log(msg.name);
 			$("#propertyName").val(msg.name);
 			$("#propertyCid").val(msg.cid);
+			$("#propertyList").attr("href","admin_property_list.html?cid="+$("#propertyCid").val());
 		}
 				
 	});
