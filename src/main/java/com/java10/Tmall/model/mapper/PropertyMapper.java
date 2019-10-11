@@ -11,4 +11,6 @@ public interface PropertyMapper {
 	public Property selectProperty();
 	public List<Property> getPropertyByCategory(Map<String,Object> map);
 	public int getRecords(int cid);
+	public void savePropertyById(String name, int cid);
+	public int selectPropertyByIdName(String name, int cid);
 }

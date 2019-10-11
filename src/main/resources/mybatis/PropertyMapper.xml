@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from property where id=1 
 	</select>
 	
+	<!-- 根据cid查询属性个数 -->
 	<select id="getRecords" resultType="int">
 		select count(*) from property where cid=#{cid} 
 	</select>
@@ -17,6 +18,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from property where cid=#{k_cid} 
 		limit #{k_index},#{k_pagesize}
 	</select>
+	
+	<select id="selectPropertyByIdName" resultType="int">
+		select count(*) from property
+		where name=#{0} and cid=#{1}
+	</select>
+	
+	<insert id="savePropertyById" >
+		insert into property (name,cid)
+		values(#{0},#{1})
+	</insert>
+	
+	
+	
+	
 </mapper>
 
 
