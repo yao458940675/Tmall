@@ -155,5 +155,4 @@ $(function(){
 		pagination();
 		getPageInfo();
 	});
-	
 })

@@ -12,4 +12,6 @@ public interface CategoryMapper {
 	public int getCategoryAmount();
 	public List<Category> getAllCategories(Map<String,Object> map);
 	public void saveCategory(Category c);
+	
+	
 }

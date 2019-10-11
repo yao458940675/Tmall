@@ -33,5 +33,7 @@ public class CategoryService {
 		categoryMapper.saveCategory(c);
 		int id=c.getId();
 		return id;
+		
+		
 	}
 }

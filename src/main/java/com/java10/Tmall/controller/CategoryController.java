@@ -50,6 +50,7 @@ public class CategoryController {
 			e.printStackTrace();
 		}
 		return "s";
+		
 	}
 	
 }

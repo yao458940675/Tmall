@@ -16,6 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		limit #{k_index},#{k_pageSize}
 	</select>
 	
+	
+
 	<!-- 添加新的类型，返回类型id -->
 	<insert id="saveCategory" parameterType="Category" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		insert into category(name)
