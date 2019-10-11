@@ -5,7 +5,7 @@ $(function(){
 	
 	//初始化查询所有属性
 	//var cid=location.href.substring(location.href.indexOf("="));	
-	var cid=2;
+	var cid=1;
 	var pagenum=1;
 	var pagesize=5;
 	getProperty();
@@ -49,7 +49,7 @@ $(function(){
 			        "<td class='col-2'>"+msg[i].id+"</td>"+
 			        "<td class='col-6'>"+msg[i].name+"</td>"+
 			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png'/></td>"+
-			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'/></td></tr>"
+			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'  data-id='"+msg[i].id+"' class='bin' /></td></tr>"
 			        )
 				}
 				
@@ -110,19 +110,54 @@ $(function(){
 		if($("#propertyName").val()==""){
 			alert("请输入属性名");
 		}else{
+			//判断属性名是否重复
 			$.ajax({
 				type:"post",
-				url:"savePropertyById/"+$("#propertyName").val()+"/"+cid,
+				url:"selectPropertyByIdName/"+$("#propertyName").val()+"/"+cid,
 				data:{},
 				dataType:"json",
 				success:function(msg){
-					console.log("add"+msg);
+					console.log("是否重复："+msg);
+					if(msg==1){
+						alert("属性名重复");
+						$("#propertyName").val("").focus();
+					}else{
+						//属性名不重复时增加属性并刷新页面
+						$.ajax({
+							type:"post",
+							url:"savePropertyById/"+$("#propertyName").val()+"/"+cid,
+							data:{},
+							dataType:"json",
+							success:function(msg){
+								console.log("savePropertyById："+msg);
+								alert(msg.result);
+								location.reload();
+							}
+						});
+					}
 				}
 			});
+			
+			
 		}
 	})
 	
-	
+	//点击垃圾桶删除，页面后追加元素事件绑定
+	$(document).on("click",".bin",function(){
+		var id=$(this).attr("data-id");
+		$.ajax({
+			type:"post",
+			url:"deletePropertyById/"+id,
+			data:{},
+			dataType:"json",
+			success:function(msg){
+				console.log("deletePropertyById："+msg);
+				alert(msg.result);
+				location.reload();
+			}
+		});
+		
+	})
 	
 	
 	

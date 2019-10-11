@@ -4,6 +4,7 @@ public class Property {
 	private int id;
 	private int cid;
 	private String name;
+	
 	public int getId() {
 		return id;
 	}
