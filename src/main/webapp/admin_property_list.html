@@ -52,8 +52,8 @@
 		        <th class="col-2">删除</th>
 		      </tr>
 		    </thead>
-		    <tbody class="w-100">
-		      <tr class="row mx-0">
+		    <tbody class="w-100" id="tbody">
+		      <!-- <tr class="row mx-0">
 		        <td class="col-2">13</td>
 		        <td class="col-6">操作系统</td>
 		        <td class="col-2"><img src="img/icon/brush_16px_562342_easyicon.net.png"/></td>
@@ -83,31 +83,32 @@
 		        <td class="col-2"><img src="img/icon/brush_16px_562342_easyicon.net.png"/></td>
 		        <td class="col-2"><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
 		      </tr>
-		    </tbody>
+		    </tbody> -->
 		</table>
 		</div>
 		<div aria-label="Page navigation example">
+			<input type="hidden" id="pagesum"/>
 			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link" href="#"><<</a>
+				<li class="page-item ">
+					<a class="page-link"  id="start"><<</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#"><</a>
+					<a class="page-link" href="#" id="last"><</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">1</a>
+					<a class="page-link"  id="one">1</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">2</a>
+					<a class="page-link"  id="two">2</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">3</a>
+					<a class="page-link" href="#" id="three">3</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">></a>
+					<a class="page-link" href="#" id="next">></a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="#">>></a>
+					<a class="page-link" href="#" id="final">>></a>
 				</li>
 			</ul>
 		</div>

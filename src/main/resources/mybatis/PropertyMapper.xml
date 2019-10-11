@@ -8,6 +8,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectProperty" resultType="Property">
 		select * from property where id=1 
 	</select>
+	
+	<select id="getRecords" resultType="int">
+		select count(*) from property where cid=#{cid} 
+	</select>
+	
+	<select id="getPropertyByCategory" parameterType="map" resultType="Property">
+		select * from property where cid=#{k_cid} 
+		limit #{k_index},#{k_pagesize}
+	</select>
 </mapper>
 
 
