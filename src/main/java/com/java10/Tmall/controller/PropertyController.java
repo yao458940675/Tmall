@@ -22,18 +22,18 @@ public class PropertyController {
 		return propertyService.selectProperty();
 	}
 	
-	@RequestMapping("getRecords/{pagesize}/{cid}")
+	@RequestMapping("getRecords/{cid}")
 	@ResponseBody
-	public int getRecords(@PathVariable int pagesize,@PathVariable int cid){
+	public int getRecords(@PathVariable int cid){
 		int sum=propertyService.getRecords(cid);
-		int num=(sum%pagesize==0)?sum/pagesize:sum/pagesize+1;
+//		int num=(sum%pagesize==0)?sum/pagesize:sum/pagesize+1;
 //		System.out.println("====================="+sum);
 //		System.out.println("====================="+pagesize);
 //		System.out.println("====================="+sum%pagesize);
 //		System.out.println("====================="+sum/pagesize);
 //		System.out.println("====================="+(sum%pagesize==0));
 //		System.out.println("====================="+num);
-		return num;
+		return sum;
 	}
 	
 	@RequestMapping("getPropertyByCategory/{cid}/{pagenum}/{pagesize}")
