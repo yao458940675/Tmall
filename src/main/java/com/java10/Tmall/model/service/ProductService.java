@@ -23,4 +23,5 @@ public class ProductService {
 		map.put("k_pagesize", 5);
 		return productMapper.selectAllProduct(map);
 	}
+	
 }

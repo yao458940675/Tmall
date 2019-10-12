@@ -2,6 +2,7 @@ package com.java10.Tmall.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,13 @@ public class ProductController {
 	
 	@RequestMapping("getAllProduct/{pagenum}")
 	@ResponseBody
+<<<<<<< HEAD
 	public List<Product> getAllProduct(@PathVariable int pagenum){
 		return productService.selectAllProduct(pagenum);
 	}
+=======
+	public List<Product> getAllProduct(){
+		return productService.selectAllProduct();
+	}
+>>>>>>> branch 'master' of https://github.com/yao458940675/Tmall.git
 }

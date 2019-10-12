@@ -9,21 +9,22 @@ $(function(){
 	var pagenum=1;
 	var pagesize=5;
 	getProperty();
+	$("#one").parent().attr("class","page-item  active");
 	
 	//查询所有记录数
 	$.ajax({
 		type:"post",
-		url:"getRecords/"+pagesize+"/"+cid,
+		url:"getRecords/"+cid,
 		data:{},
 		dataType:"json",
 		success:function(msg){			
 			console.log(msg);			
 			$("#pagesum").val(msg);
 			//分页123的隐藏
-			if(msg<3){
+			if(Math.ceil(msg/pagesize)<3){
 				$("#three").parent().hide();
 			}
-			if(msg<2){
+			if(Math.ceil(msg/pagesize)<2){
 				$("#two").parent().hide();
 			}
 
@@ -58,25 +59,37 @@ $(function(){
 		});
 	}
 	
-	$("#one,#start").click(function(){
-		pagenum=1;		
+	//首页
+	$("#start").click(function(){
+		pagenum=1;
+		$("#one").text(pagenum);
+		$("#two").text(pagenum+1);
+		$("#three").text(pagenum+2);
 		getProperty();
-		$("#one,#start").parent().parent().children().attr("class","page-item");
-		$("#one,#start,#last").parent().attr("class","page-item disabled");
+		$("#start").parent().parent().children().attr("class","page-item");
+		$("#start,#last").parent().attr("class","page-item disabled ");
+		$("#one").parent().attr("class","page-item  active");
+	})
+	
+	$("#one").click(function(){
+		pagenum=$("#one").text();		
+		getProperty();
+		$("#one").parent().parent().children().attr("class","page-item");
+		$("#one").parent().attr("class","page-item active ");
 	})
 	
 	$("#two").click(function(){
-		pagenum=2;		
+		pagenum=$("#two").text();		
 		getProperty();
 		$("#two").parent().parent().children().attr("class","page-item");
-		$("#two").parent().attr("class","page-item disabled");
+		$("#two").parent().attr("class","page-item  active");
 	})
 	
 	$("#three").click(function(){
-		pagenum=3;		
+		pagenum=$("#three").text();		
 		getProperty();
 		$("#three").parent().parent().children().attr("class","page-item");
-		$("#three").parent().attr("class","page-item disabled");
+		$("#three").parent().attr("class","page-item  active");
 	})
 	//上一页
 	$("#last").click(function(){
@@ -84,25 +97,57 @@ $(function(){
 			pagenum=pagenum-1;
 			getProperty();
 			$("#last").parent().parent().children().attr("class","page-item");
+			if(pagenum<parseInt($("#one").text())){
+				$("#one").text(pagenum);
+				$("#two").text(pagenum+1);
+				$("#three").text(pagenum+2);
+				$("#one").parent().attr("class","page-item  active");
+			}else{
+				if($("#two").text()==pagenum){
+					$("#two").parent().attr("class","page-item  active");
+				}else{
+					$("#one").parent().attr("class","page-item  active");
+				}
+			}
+			
 		}
 
 	})
 	//下一页
 	$("#next").click(function(){
-		console.log("pagesum:"+$("#pagesum").val());		
-		if(pagenum<$("#pagesum").val()){
-			pagenum=pagenum+1;
+		console.log("下一页======"+Math.ceil(($("#pagesum").val())/pagesize));
+		if(pagenum<Math.ceil(($("#pagesum").val())/pagesize)){
+			pagenum=parseInt(pagenum)+1;
+			console.log("pagenum====="+pagenum);
 			getProperty();
 			$("#next").parent().parent().children().attr("class","page-item");
+			if(pagenum>3){
+				$("#three").text(pagenum);
+				$("#two").text(pagenum-1);
+				$("#one").text(pagenum-2);
+				$("#three").parent().attr("class","page-item  active");
+			}else{
+				if($("#two").text()==pagenum){
+					$("#two").parent().attr("class","page-item  active");
+				}else{
+					$("#three").parent().attr("class","page-item  active");
+				}
+			}
+			
 		}
 				
 	})
 	//末页
 	$("#final").click(function(){
-		pagenum=$("#pagesum").val();
+		pagenum=Math.ceil(($("#pagesum").val())/pagesize);
+		console.log("末页====="+pagenum);
+		$("#three").text(pagenum);
+		$("#two").text(pagenum-1);
+		$("#one").text(pagenum-2);
 		getProperty();
 		$("#final").parent().parent().children().attr("class","page-item");
 		$("#final,#next").parent().attr("class","page-item disabled");
+		$("#three").parent().attr("class","page-item  active");
 	})
 	
 	//增加属性
@@ -130,6 +175,8 @@ $(function(){
 							dataType:"json",
 							success:function(msg){
 								console.log("savePropertyById："+msg);
+								$("#pagesum").val(parseInt($("#pagesum").val())+1);
+								console.log($("#pagesum").val());
 								alert(msg.result);
 								location.reload();
 							}
@@ -152,6 +199,7 @@ $(function(){
 			dataType:"json",
 			success:function(msg){
 				console.log("deletePropertyById："+msg);
+				$("#pagesum").val(parseInt($("#pagesum").val())-1);
 				alert(msg.result);
 				location.reload();
 			}

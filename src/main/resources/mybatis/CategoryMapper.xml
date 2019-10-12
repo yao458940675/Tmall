@@ -9,4 +9,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from Category
 		limit #{k_index},#{k_pageSize}
 	</select>
+
+	
+	
+
+	<!-- 添加新的类型，返回类型id -->
+	<insert id="saveCategory" parameterType="Category" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		insert into category(name)
+		values(#{name})
+	</insert>
+	
+	<!-- 删除类型 -->
+	<delete id="deleteCategory" parameterType="int">
+		delete from category
+		where id=#{id}
+	</delete>
+
 </mapper>
