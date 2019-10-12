@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.java10.Tmall.model.bean.Category;
 import com.java10.Tmall.model.mapper.CategoryMapper;
@@ -33,5 +34,9 @@ public class CategoryService {
 		categoryMapper.saveCategory(c);
 		int id=c.getId();
 		return id;
+	}
+	@Transactional
+	public void deleteCategory(@PathVariable int id){
+		categoryMapper.deleteCategory(id);
 	}
 }

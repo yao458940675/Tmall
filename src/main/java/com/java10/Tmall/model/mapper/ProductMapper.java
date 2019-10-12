@@ -10,7 +10,5 @@ import com.java10.Tmall.model.bean.Product;
 
 @Mapper
 public interface ProductMapper {
-
 	public List<Product> selectAllProduct(Map<String,Object> map);
-
 }

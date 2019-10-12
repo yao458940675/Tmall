@@ -33,6 +33,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap type="Category" id="CaRes">
 	<result property="name" column="cname"/>
 	</resultMap>
+	
+	<!-- 保存产品图片，并返回id -->
+	<insert id="saveProductImage" parameterType="ProductImage" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		insert into productimage(pid,type)
+		values(#{pid},#{type})
+	</insert>
+	
+	<!-- 通过pid获得产品图片id数组 -->
+	<select id="getProductImages" parameterType="int" resultType="ProductImage">
+		select id,type from productimage
+		where pid=#{pid}
+	</select>
 </mapper>
 
 

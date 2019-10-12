@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,7 +38,6 @@ public class CategoryController {
 	@RequestMapping("uploadCategoryImage")
 	public String uploadCategoryImage(MultipartFile upload,HttpServletRequest request){
 		//获取原始文件名
-		System.out.println("123445");
 		String filename=upload.getOriginalFilename();
 		String path=request.getServletContext().getRealPath("/img/cimg");
 		File file=new File(path,filename);
@@ -52,6 +52,14 @@ public class CategoryController {
 		}
 		return "s";
 		
+	}
+	
+	//删除Category
+	@RequestMapping("deleteCategory/{id}")
+	@ResponseBody
+	public String deleteCategory(@PathVariable int id){
+		categoryService.deleteCategory(id);
+		return "s";
 	}
 	
 }

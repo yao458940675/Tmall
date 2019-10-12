@@ -23,4 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into category(name)
 		values(#{name})
 	</insert>
+	
+	<!-- 删除类型 -->
+	<delete id="deleteCategory" parameterType="int">
+		delete from category
+		where id=#{id}
+	</delete>
 </mapper>

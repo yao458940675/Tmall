@@ -2,6 +2,7 @@ package com.java10.Tmall.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -23,6 +24,8 @@ public class ProductController {
 	public List<Product> getAllProduct(@PathVariable int pagesize,@PathVariable int pagenum){
 		return productService.selectAllProduct(pagesize, pagenum);
 	}
+	
+	
 	
 
 }

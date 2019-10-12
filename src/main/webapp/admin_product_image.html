@@ -13,6 +13,7 @@
 		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/admin_product_image.css" />
+		<script type="text/javascript" src="js/admin_product_image.js"></script>
 	</head>
 
 	<body>
@@ -52,12 +53,12 @@
 			<div class="form-group">
 				<p>请选择本地图片 尺寸400X400 为佳</p>
 
-				<input type="file" id="inputfile">
+				<input type="file" class="inputfile" id="productfile">
 
 			</div>
 			<div id="but1">
 
-				<button type="button" class="btn btn-success">提交</button>
+				<button type="button" class="btn btn-success" id="imageBtn1">提交</button>
 			</div>
 		</form>
 		<form role="form" class="col-md-3.5 col-md-offset-4" id="f2">
@@ -69,11 +70,11 @@
 			<div class="form-group">
 				<p>请选择本地图片 宽度790 为佳</p>
 
-				<input type="file" id="inputfile">
+				<input type="file" class="inputfile" id="detailfile">
 
 			</div>
 			<div id="but2">
-				<button type="button" class="btn btn-success">提交</button>
+				<button type="button" class="btn btn-success" id="imageBtn2">提交</button>
 			</div>
 
 		</form>
@@ -81,7 +82,7 @@
 			<div class="row">
 				<div class="col-sm-5">
 					<div id="table1">
-						<table class="table table-bordered">
+						<table class="table table-bordered" id="table1">
 
 							<thead>
 								<tr class="table-success">
@@ -91,21 +92,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>676</td>
-									<td>Bangalore</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
-								<tr>
-									<td>676</td>
-									<td>Bangalore</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
-								<tr>
-									<td>676</td>
-									<td>Bangalore</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -113,7 +100,7 @@
 
 				<div class="col-sm-5">
 					<div id="table2">
-						<table class="table table-bordered">
+						<table class="table table-bordered" id="table2">
 
 							<thead>
 								<tr class="table-success">
@@ -123,21 +110,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>682</td>
-									<td>Bangalore</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
-								<tr>
-									<td>Sachin</td>
-									<td>Mumbai</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
-								<tr>
-									<td>Uma</td>
-									<td>Pune</td>
-									<td><img src="img/icon/bin_16px_562337_easyicon.net.png"/></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -146,5 +119,6 @@
 			</div>
 
 		</div>
+		<form id="imgForm"></form>
 
 </html>

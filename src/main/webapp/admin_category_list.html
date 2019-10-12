@@ -11,7 +11,9 @@
 		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/pagination.js"></script>
 		<script src="js/admin_category_list.js"></script>
+		
 	</head>
 
 	<body>
@@ -55,37 +57,9 @@
 				</tbody>
 			</table>
 		</div>
-
-		
-		<div aria-label="Page navigation example">
-			<ul class="pagination justify-content-center">
-				<li class="page-item" id="firstPageli">
-					<a class="page-link" href="#" id="firstPage"><<</a>
-				</li>
-				<li class="page-item" id="previousli">
-					<a class="page-link" href="#" id="previous"><</a>
-				</li>
-				<li class="page-item" id="firstli">
-					<a class="page-link" href="#" id="first">1</a>
-				</li>
-				<li class="page-item" id="secondli">
-					<a class="page-link" href="#" id="second">2</a>
-				</li>
-				<li class="page-item" id="thirdli">
-					<a class="page-link" href="#" id="third">3</a>
-				</li>
-				<li class="page-item" id="nextli">
-					<a class="page-link" href="#" id="next">></a>
-				</li>
-				
-				<li class="page-item" id="lastPageli">
-					<a class="page-link" href="#" id="lastPage">>></a>
-				</li>
-			</ul>
-			<input type="hidden" id="amount"/>
+		<div id="pagination1">
 		</div>
-
-		
+	
 		<div class="row">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
@@ -119,6 +93,12 @@
 			</div>
 		</div>
 		<form id="imgForm"></form>
+		
+		<input type="text" id="test"/>
+		<script>
+			$("#pagination1").load("pagination.html");
+		</script>
+		
 		
 	</body>
 
