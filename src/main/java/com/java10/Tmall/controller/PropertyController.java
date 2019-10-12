@@ -64,6 +64,21 @@ public class PropertyController {
 		return "{\"result\":\"删除成功\"}";
 	}
 	
+	@RequestMapping("selectPropertyName/{id}")
+	@ResponseBody
+	public Property selectPropertyName(@PathVariable int id){
+		return propertyService.selectPropertyName(id);
+	}
+	
+	@RequestMapping("updatePropertyById/{name}/{id}")
+	@ResponseBody
+	public String updatePropertyById(@PathVariable String name,@PathVariable int id){
+		propertyService.updatePropertyById(name,id);
+		return "{\"result\":\"修改成功\"}";
+	}	
+	
+	
+	
 	@RequestMapping("getPropertiesById/{id}")
 	@ResponseBody
 	public List<Property> getPropertiesById(@PathVariable int id){

@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,11 +16,9 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping("getAllProduct/{pagesize}/{pagenum}")
+	@RequestMapping("getAllProduct")
 	@ResponseBody
-	public List<Product> getAllProduct(@PathVariable int pagesize,@PathVariable int pagenum){
-		return productService.selectAllProduct(pagesize, pagenum);
+	public List<Product> getAllProduct(){
+		return productService.selectAllProduct();
 	}
-	
-
 }

@@ -34,9 +34,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id=#{id}
 	</delete>
 	
+	<select id="selectPropertyName" parameterType="int" resultType="Property">
+		select * from property 
+		where id=#{id}
+	</select>
 	
-	
-	
+	<update id="updatePropertyById" >
+		update property set name=#{0}
+		where id=#{1}
+	</update>
 	
 	
 	

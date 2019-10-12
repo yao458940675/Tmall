@@ -50,6 +50,18 @@ public class PropertyService {
 		propertyMapper.deletePropertyById(id);
 	}
 	
+	public Property selectPropertyName(int id) {
+		// TODO Auto-generated method stub
+		return propertyMapper.selectPropertyName(id);
+	}
+	
+	public void updatePropertyById(String name, int id) {
+		// TODO Auto-generated method stub
+		propertyMapper.updatePropertyById(name,id);
+	}
+	
+	
+	
 	public List<Property> getPropertiesById( int id){
 		return propertyMapper.getPropertiesById(id);
 	}
@@ -59,4 +71,8 @@ public class PropertyService {
 		pv.setValue(value);
 		propertyMapper.updataPropertieById(pv);
 	}
+
+
+
+	
 }

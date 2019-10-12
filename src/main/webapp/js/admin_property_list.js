@@ -48,7 +48,7 @@ $(function(){
 					$("#tbody").append("<tr class='row mx-0'>"+
 			        "<td class='col-2'>"+msg[i].id+"</td>"+
 			        "<td class='col-6'>"+msg[i].name+"</td>"+
-			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png'/></td>"+
+			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png' data-id='"+msg[i].id+"' data-name='"+msg[i].name+"' class='edit'/></td> "+
 			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'  data-id='"+msg[i].id+"' class='bin' /></td></tr>"
 			        )
 				}
@@ -159,7 +159,13 @@ $(function(){
 		
 	})
 	
-	
+	//点击图片进入编辑页面，页面后追加元素事件绑定
+	$(document).on("click",".edit",function(){
+		//var name=$(this).attr("data-name");
+		var id=$(this).attr("data-id");
+		location.href="admin_property_edit.html?id="+id;
+		
+	})
 	
 	
 	
