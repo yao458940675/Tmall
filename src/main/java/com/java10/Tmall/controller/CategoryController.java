@@ -29,6 +29,7 @@ public class CategoryController {
 	public int getCategoryAmount(){
 		return categoryService.getCategoryAmount();
 	}
+	
 	@RequestMapping("saveCategory/{name}")
 	public int saveCategory(@PathVariable String name){
 		return categoryService.saveCategory(name);
