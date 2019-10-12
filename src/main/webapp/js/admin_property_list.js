@@ -4,7 +4,7 @@ $(function(){
 
 	
 	//初始化查询所有属性
-	//var cid=location.href.substring(location.href.indexOf("="));	
+	//var cid=location.href.substr(location.href.indexOf("=")+1);	
 	var cid=1;
 	var pagenum=1;
 	var pagesize=5;
