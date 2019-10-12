@@ -4,8 +4,8 @@ $(function(){
 
 	
 	//初始化查询所有属性
-	//var cid=location.href.substring(location.href.indexOf("="));	
-	var cid=1;
+	//var cid=location.href.substr(location.href.indexOf("=")+1);	
+	var cid=2;
 	var pagenum=1;
 	var pagesize=5;
 	getProperty();
@@ -13,17 +13,17 @@ $(function(){
 	//查询所有记录数
 	$.ajax({
 		type:"post",
-		url:"getRecords/"+pagesize+"/"+cid,
+		url:"getRecords/"+cid,
 		data:{},
 		dataType:"json",
 		success:function(msg){			
 			console.log(msg);			
 			$("#pagesum").val(msg);
 			//分页123的隐藏
-			if(msg<3){
+			if(Math.ceil(msg/pagesize)<3){
 				$("#three").parent().hide();
 			}
-			if(msg<2){
+			if(Math.ceil(msg/pagesize)<2){
 				$("#two").parent().hide();
 			}
 
@@ -48,7 +48,7 @@ $(function(){
 					$("#tbody").append("<tr class='row mx-0'>"+
 			        "<td class='col-2'>"+msg[i].id+"</td>"+
 			        "<td class='col-6'>"+msg[i].name+"</td>"+
-			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png'/></td>"+
+			        "<td class='col-2'><img src='img/icon/brush_16px_562342_easyicon.net.png' data-id='"+msg[i].id+"' data-name='"+msg[i].name+"' class='edit'/></td> "+
 			        "<td class='col-2'><img src='img/icon/bin_16px_562337_easyicon.net.png'  data-id='"+msg[i].id+"' class='bin' /></td></tr>"
 			        )
 				}
@@ -62,21 +62,21 @@ $(function(){
 		pagenum=1;		
 		getProperty();
 		$("#one,#start").parent().parent().children().attr("class","page-item");
-		$("#one,#start,#last").parent().attr("class","page-item disabled");
+		$("#one,#start,#last").parent().attr("class","page-item disabled ");
 	})
 	
 	$("#two").click(function(){
 		pagenum=2;		
 		getProperty();
 		$("#two").parent().parent().children().attr("class","page-item");
-		$("#two").parent().attr("class","page-item disabled");
+		$("#two").parent().attr("class","page-item  disabled");
 	})
 	
 	$("#three").click(function(){
 		pagenum=3;		
 		getProperty();
 		$("#three").parent().parent().children().attr("class","page-item");
-		$("#three").parent().attr("class","page-item disabled");
+		$("#three").parent().attr("class","page-item  disabled");
 	})
 	//上一页
 	$("#last").click(function(){
@@ -89,8 +89,8 @@ $(function(){
 	})
 	//下一页
 	$("#next").click(function(){
-		console.log("pagesum:"+$("#pagesum").val());		
-		if(pagenum<$("#pagesum").val()){
+		console.log("下一页======"+Math.ceil(($("#pagesum").val())/pagesize));
+		if(pagenum<Math.ceil(($("#pagesum").val())/pagesize)){
 			pagenum=pagenum+1;
 			getProperty();
 			$("#next").parent().parent().children().attr("class","page-item");
@@ -99,7 +99,8 @@ $(function(){
 	})
 	//末页
 	$("#final").click(function(){
-		pagenum=$("#pagesum").val();
+		pagenum=Math.ceil(($("#pagesum").val())/pagesize);
+		console.log("末页====="+pagenum);
 		getProperty();
 		$("#final").parent().parent().children().attr("class","page-item");
 		$("#final,#next").parent().attr("class","page-item disabled");
@@ -130,6 +131,8 @@ $(function(){
 							dataType:"json",
 							success:function(msg){
 								console.log("savePropertyById："+msg);
+								$("#pagesum").val(parseInt($("#pagesum").val())+1);
+								console.log($("#pagesum").val());
 								alert(msg.result);
 								location.reload();
 							}
@@ -152,6 +155,7 @@ $(function(){
 			dataType:"json",
 			success:function(msg){
 				console.log("deletePropertyById："+msg);
+				$("#pagesum").val(parseInt($("#pagesum").val())-1);
 				alert(msg.result);
 				location.reload();
 			}
@@ -159,7 +163,13 @@ $(function(){
 		
 	})
 	
-	
+	//点击图片进入编辑页面，页面后追加元素事件绑定
+	$(document).on("click",".edit",function(){
+		//var name=$(this).attr("data-name");
+		var id=$(this).attr("data-id");
+		location.href="admin_property_edit.html?id="+id;
+		
+	})
 	
 	
 	

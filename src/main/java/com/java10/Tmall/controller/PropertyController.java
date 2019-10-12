@@ -22,18 +22,18 @@ public class PropertyController {
 		return propertyService.selectProperty();
 	}
 	
-	@RequestMapping("getRecords/{pagesize}/{cid}")
+	@RequestMapping("getRecords/{cid}")
 	@ResponseBody
-	public int getRecords(@PathVariable int pagesize,@PathVariable int cid){
+	public int getRecords(@PathVariable int cid){
 		int sum=propertyService.getRecords(cid);
-		int num=(sum%pagesize==0)?sum/pagesize:sum/pagesize+1;
+//		int num=(sum%pagesize==0)?sum/pagesize:sum/pagesize+1;
 //		System.out.println("====================="+sum);
 //		System.out.println("====================="+pagesize);
 //		System.out.println("====================="+sum%pagesize);
 //		System.out.println("====================="+sum/pagesize);
 //		System.out.println("====================="+(sum%pagesize==0));
 //		System.out.println("====================="+num);
-		return num;
+		return sum;
 	}
 	
 	@RequestMapping("getPropertyByCategory/{cid}/{pagenum}/{pagesize}")
@@ -63,6 +63,21 @@ public class PropertyController {
 		propertyService.deletePropertyById(id);
 		return "{\"result\":\"删除成功\"}";
 	}
+	
+	@RequestMapping("selectPropertyName/{id}")
+	@ResponseBody
+	public Property selectPropertyName(@PathVariable int id){
+		return propertyService.selectPropertyName(id);
+	}
+	
+	@RequestMapping("updatePropertyById/{name}/{id}")
+	@ResponseBody
+	public String updatePropertyById(@PathVariable String name,@PathVariable int id){
+		propertyService.updatePropertyById(name,id);
+		return "{\"result\":\"修改成功\"}";
+	}	
+	
+	
 	
 	@RequestMapping("getPropertiesById/{id}")
 	@ResponseBody
