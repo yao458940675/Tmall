@@ -5,10 +5,11 @@ $(function(){
 	
 	//初始化查询所有属性
 	//var cid=location.href.substr(location.href.indexOf("=")+1);	
-	var cid=2;
+	var cid=1;
 	var pagenum=1;
 	var pagesize=5;
 	getProperty();
+	$("#one").parent().attr("class","page-item  active");
 	
 	//查询所有记录数
 	$.ajax({
@@ -58,25 +59,37 @@ $(function(){
 		});
 	}
 	
-	$("#one,#start").click(function(){
-		pagenum=1;		
+	//首页
+	$("#start").click(function(){
+		pagenum=1;
+		$("#one").text(pagenum);
+		$("#two").text(pagenum+1);
+		$("#three").text(pagenum+2);
 		getProperty();
-		$("#one,#start").parent().parent().children().attr("class","page-item");
-		$("#one,#start,#last").parent().attr("class","page-item disabled ");
+		$("#start").parent().parent().children().attr("class","page-item");
+		$("#start,#last").parent().attr("class","page-item disabled ");
+		$("#one").parent().attr("class","page-item  active");
+	})
+	
+	$("#one").click(function(){
+		pagenum=$("#one").text();		
+		getProperty();
+		$("#one").parent().parent().children().attr("class","page-item");
+		$("#one").parent().attr("class","page-item active ");
 	})
 	
 	$("#two").click(function(){
-		pagenum=2;		
+		pagenum=$("#two").text();		
 		getProperty();
 		$("#two").parent().parent().children().attr("class","page-item");
-		$("#two").parent().attr("class","page-item  disabled");
+		$("#two").parent().attr("class","page-item  active");
 	})
 	
 	$("#three").click(function(){
-		pagenum=3;		
+		pagenum=$("#three").text();		
 		getProperty();
 		$("#three").parent().parent().children().attr("class","page-item");
-		$("#three").parent().attr("class","page-item  disabled");
+		$("#three").parent().attr("class","page-item  active");
 	})
 	//上一页
 	$("#last").click(function(){
@@ -84,6 +97,19 @@ $(function(){
 			pagenum=pagenum-1;
 			getProperty();
 			$("#last").parent().parent().children().attr("class","page-item");
+			if(pagenum<parseInt($("#one").text())){
+				$("#one").text(pagenum);
+				$("#two").text(pagenum+1);
+				$("#three").text(pagenum+2);
+				$("#one").parent().attr("class","page-item  active");
+			}else{
+				if($("#two").text()==pagenum){
+					$("#two").parent().attr("class","page-item  active");
+				}else{
+					$("#one").parent().attr("class","page-item  active");
+				}
+			}
+			
 		}
 
 	})
@@ -91,9 +117,23 @@ $(function(){
 	$("#next").click(function(){
 		console.log("下一页======"+Math.ceil(($("#pagesum").val())/pagesize));
 		if(pagenum<Math.ceil(($("#pagesum").val())/pagesize)){
-			pagenum=pagenum+1;
+			pagenum=parseInt(pagenum)+1;
+			console.log("pagenum====="+pagenum);
 			getProperty();
 			$("#next").parent().parent().children().attr("class","page-item");
+			if(pagenum>3){
+				$("#three").text(pagenum);
+				$("#two").text(pagenum-1);
+				$("#one").text(pagenum-2);
+				$("#three").parent().attr("class","page-item  active");
+			}else{
+				if($("#two").text()==pagenum){
+					$("#two").parent().attr("class","page-item  active");
+				}else{
+					$("#three").parent().attr("class","page-item  active");
+				}
+			}
+			
 		}
 				
 	})
@@ -101,9 +141,13 @@ $(function(){
 	$("#final").click(function(){
 		pagenum=Math.ceil(($("#pagesum").val())/pagesize);
 		console.log("末页====="+pagenum);
+		$("#three").text(pagenum);
+		$("#two").text(pagenum-1);
+		$("#one").text(pagenum-2);
 		getProperty();
 		$("#final").parent().parent().children().attr("class","page-item");
 		$("#final,#next").parent().attr("class","page-item disabled");
+		$("#three").parent().attr("class","page-item  active");
 	})
 	
 	//增加属性
