@@ -4,7 +4,13 @@ public class Property {
 	private int id;
 	private int cid;
 	private String name;
-	
+	private PropertyValue propertyValue;
+	public PropertyValue getPropertyValue() {
+		return propertyValue;
+	}
+	public void setPropertyValue(PropertyValue propertyValue) {
+		this.propertyValue = propertyValue;
+	}
 	public int getId() {
 		return id;
 	}

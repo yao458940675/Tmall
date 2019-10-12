@@ -27,12 +27,12 @@ public class PropertyController {
 	public int getRecords(@PathVariable int pagesize,@PathVariable int cid){
 		int sum=propertyService.getRecords(cid);
 		int num=(sum%pagesize==0)?sum/pagesize:sum/pagesize+1;
-		System.out.println("====================="+sum);
-		System.out.println("====================="+pagesize);
-		System.out.println("====================="+sum%pagesize);
-		System.out.println("====================="+sum/pagesize);
-		System.out.println("====================="+(sum%pagesize==0));
-		System.out.println("====================="+num);
+//		System.out.println("====================="+sum);
+//		System.out.println("====================="+pagesize);
+//		System.out.println("====================="+sum%pagesize);
+//		System.out.println("====================="+sum/pagesize);
+//		System.out.println("====================="+(sum%pagesize==0));
+//		System.out.println("====================="+num);
 		return num;
 	}
 	
@@ -42,6 +42,56 @@ public class PropertyController {
 		//System.out.println(cid+" "+pagenum+" "+pagesize);
 		//System.out.println(propertyService.getPropertyByCategory(cid,pagenum,pagesize));
 		return propertyService.getPropertyByCategory(cid,pagenum,pagesize);
+	}
+	
+	@RequestMapping("selectPropertyByIdName/{name}/{cid}")
+	@ResponseBody
+	public int selectPropertyByIdName(@PathVariable String name,@PathVariable int cid){
+		return propertyService.selectPropertyByIdName(name,cid);
+	}
+	
+	@RequestMapping("savePropertyById/{name}/{cid}")
+	@ResponseBody
+	public String savePropertyById(@PathVariable String name,@PathVariable int cid){
+		propertyService.savePropertyById(name,cid);
+		return "{\"result\":\"增加成功\"}";
+	}
+	
+	@RequestMapping("deletePropertyById/{id}")
+	@ResponseBody
+	public String deletePropertyById(@PathVariable int id){
+		propertyService.deletePropertyById(id);
+		return "{\"result\":\"删除成功\"}";
+	}
+	
+	@RequestMapping("selectPropertyName/{id}")
+	@ResponseBody
+	public Property selectPropertyName(@PathVariable int id){
+		return propertyService.selectPropertyName(id);
+	}
+	
+	@RequestMapping("updatePropertyById/{name}/{id}")
+	@ResponseBody
+	public String updatePropertyById(@PathVariable String name,@PathVariable int id){
+		propertyService.updatePropertyById(name,id);
+		return "{\"result\":\"修改成功\"}";
+	}	
+	
+	
+	
+	@RequestMapping("getPropertiesById/{id}")
+	@ResponseBody
+	public List<Property> getPropertiesById(@PathVariable int id){
+		
+		return propertyService.getPropertiesById(id);
+		
+	}
+	@RequestMapping("updataPropertieById/{value}/{id}")
+	@ResponseBody
+	public String updataPropertieById(@PathVariable String value,@PathVariable int id){
+		System.out.print("已进入controller");
+		propertyService.updataPropertieById(value, id);
+		return "{\"data\":\"success\"}";
 	}
 	
 	

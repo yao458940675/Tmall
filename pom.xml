@@ -36,6 +36,7 @@
 		</dependency>
 		
 		
+		
 		<!-- 配置热部署 ,避免服务频繁的重启，但是控制台一直更新-->
 	 	<dependency>
 	        <groupId>org.springframework.boot</groupId>
