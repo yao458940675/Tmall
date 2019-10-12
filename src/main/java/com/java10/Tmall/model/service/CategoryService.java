@@ -17,6 +17,9 @@ import com.java10.Tmall.model.mapper.CategoryMapper;
 public class CategoryService {
 	@Autowired
 	private CategoryMapper categoryMapper;
+	public int getCategoryAmount(){
+		return categoryMapper.getCategoryAmount();
+	}
 	public List<Category> getAllCategories(int pageSize,int pageNum){
 		//分页查询 limit 需要起始行索引（0-based），行数
 		Map<String,Object> map=new HashMap<>();
@@ -26,7 +29,16 @@ public class CategoryService {
 		return categoryMapper.getAllCategories(map);
 	}
 	@Transactional
+	public int saveCategory(String name){
+		Category c=new Category();
+		c.setName(name);
+		categoryMapper.saveCategory(c);
+		int id=c.getId();
+		return id;
+	}
+	@Transactional
 	public void deleteCategory(@PathVariable int id){
 		categoryMapper.deleteCategory(id);
 	}
+	
 }

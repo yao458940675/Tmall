@@ -1,12 +1,17 @@
 package com.java10.Tmall.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.java10.Tmall.model.bean.Category;
 import com.java10.Tmall.model.service.CategoryService;

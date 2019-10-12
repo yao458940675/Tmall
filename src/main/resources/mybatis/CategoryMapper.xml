@@ -3,13 +3,17 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.java10.Tmall.model.mapper.CategoryMapper" >
+	<!-- 查询category总数 -->
+	<select id="getCategoryAmount" resultType="int">
+		select count(*) from Category
+	</select>
 	
 	<!-- 根据pageSize,pageNum查询Category信息 -->
 	<select id="getAllCategories" resultType="Category">
 		select * from Category
+		order by id
 		limit #{k_index},#{k_pageSize}
 	</select>
-
 	
 	
 
