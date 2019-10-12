@@ -6,9 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="selectAllProduct" resultMap="ProductRes">
-		select p.*,c.name cname,pro.id proid
+		select p.id id,p.name name,ifNull(p.subTitle,"") subTitle,p.originalPrice originalPrice,p.promotePrice promotePrice,p.stock stock,
+		c.name cname,pro.id proid
 		from product p,category c,productimage pro
 		where p.cid=c.id and p.id=pro.pid
+		limit #{k_pagenum},#{k_pagesize}
 		
 	</select>
 	<resultMap type="Product" id="ProductRes">
