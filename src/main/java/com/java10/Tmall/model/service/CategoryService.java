@@ -37,8 +37,15 @@ public class CategoryService {
 		return id;
 	}
 	@Transactional
-	public void deleteCategory(@PathVariable int id){
+	public void deleteCategory(int id){
 		categoryMapper.deleteCategory(id);
+	}
+	@Transactional
+	public void updateCategory(String name,int id){
+		Category c=new Category();
+		c.setId(id);
+		c.setName(name);
+		categoryMapper.updateCategory(c);
 	}
 	
 }

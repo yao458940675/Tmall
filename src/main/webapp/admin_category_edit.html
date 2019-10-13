@@ -2,8 +2,9 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title>分类管理</title>
+		<meta charset="utf-8" />
+		<title>编辑属性</title>
+
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 		<script src="lib/bootstrap/js/jquery-3.2.1.min.js"></script>
@@ -11,13 +12,11 @@
 		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-		<script src="js/pagination.js"></script>
-		<script src="js/admin_category_list.js"></script>
-		
+		<script type="text/javascript" src="js/admin_category_edit.js"></script>
 	</head>
 
 	<body>
-		<!-- 灰底黑字导航栏 -->
+				<!-- 灰底黑字 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<a class="navbar-brand" href="#">
 		    	<img src="img/site/tmallbuy.png" alt="Logo" style="width:40px;">
@@ -39,37 +38,22 @@
 			</ul>
 		</nav>
 		<h1></h1>
-		<div class="container">
-			<table class="table table-bordered table-sm" id="table1">
-				<thead class="table-success">
-					<tr>
-						<th>ID</th>
-						<th>图片</th>
-						<th>分类名称</th>
-						<th>属性管理</th>
-						<th>产品管理</th>
-						<th>编辑</th>
-						<th>删除</th>
-					</tr>
-				</thead>
-				<tbody>
-					
-				</tbody>
-			</table>
+		<div class="container bg-light text-dark">
+			<a href="admin_category_list.html">所有分类</a>/ 编辑分类
 		</div>
-
-		<div id="pagination1"></div>
-
-	
+		<h1></h1>
+		
+		
+		
 		<div class="row">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
 				<div class="card">
-				  <h6 class="card-header">新增图片</h5>
+				  <h6 class="card-header">编辑分类</h5>
 				  <div class="card-body">
-				  	<form id="saveCategory">
+				  	<form id="updateC">
 					<div class="form-group row">
-						<label for="categoryName" class="col-sm-4 col-form-label">分类名称</label>
+						<label for="categoryName" class="col-sm-4 col-form-label">编辑分类</label>
 						<div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
 							<input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="分类名称">
 						</div>
@@ -85,7 +69,7 @@
 						<div class="col-sm-4">
 						</div>
 						<div class="col-sm-4">
-							<button type="button" class="btn btn-primary btn-block" id="addCategory">提交</button>
+							<button type="button" class="btn btn-primary btn-block" id="updateCategory">提交</button>
 						</div>
 					</div>
 				</form>
@@ -93,11 +77,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- <form id="imgForm"></form> -->
-		<script>
-			$("#pagination1").load("pagination.html");
-		</script>
-		
 		
 	</body>
 

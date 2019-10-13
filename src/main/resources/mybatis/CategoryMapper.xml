@@ -28,5 +28,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from category
 		where id=#{id}
 	</delete>
+	
+	<!-- 编辑类型 -->
+	<update id="updateCategory" parameterType="Category">
+		update category
+		set name=#{name}
+		where id=#{id}
+	</update>
 
 </mapper>
