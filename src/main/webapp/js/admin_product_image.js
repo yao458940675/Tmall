@@ -1,4 +1,5 @@
-var pid=1;
+var pid=location.href.substr(location.href.lastIndexOf("=")+1);
+var cid=location.href.substr(location.href.indexOf("=")+1).split("/")[0];
 var file;
 function getProductImages(){
 	//页面初始化
@@ -24,6 +25,26 @@ function getProductImages(){
 	})
 }
 $(function(){
+	//面包屑导航栏获得分类名称
+	$.ajax({
+		type:"post",
+		url:"getCategoryById/"+cid,
+		data:{},
+		dataType:"text",
+		success:function(msg){
+			$("#cname").html(msg);
+		}
+	})
+	//面包屑导航栏获得产品名称
+	$.ajax({
+		type:"post",
+		url:"selectProductName/"+pid,
+		data:{},
+		dataType:"json",
+		success:function(msg){
+			$("#pname").html(msg.name+""+msg.subTitle);
+		}
+	})
 	getProductImages();
 	
 	$("#imageBtn1").click(function(){

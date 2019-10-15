@@ -17,7 +17,7 @@ public interface PropertyMapper {
 	public void deletePropertyById(int id);
 	public Property selectPropertyName(int id);
 	public void updatePropertyById(String name, int id);	
-	public List<Property> getPropertiesById(int id);
+	public List<Property> getPropertiesById(Map<String,Object> map);
 	public void updataPropertieById(PropertyValue pv);
 	
 }

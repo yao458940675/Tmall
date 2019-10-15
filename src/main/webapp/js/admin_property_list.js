@@ -4,10 +4,19 @@ $(function(){
 
 	
 	//初始化查询所有属性
-	//var cid=location.href.substr(location.href.indexOf("=")+1);	
-	var cid=1;
+	var cid=location.href.substr(location.href.indexOf("=")+1);	
 	var pagenum=1;
 	var pagesize=5;
+	//面包屑导航栏获得分类名称
+	$.ajax({
+		type:"post",
+		url:"getCategoryById/"+cid,
+		data:{},
+		dataType:"text",
+		success:function(msg){
+			$("#cname").html(msg);
+		}
+	})
 	getProperty();
 	$("#one").parent().attr("class","page-item  active");
 	
@@ -140,14 +149,23 @@ $(function(){
 	//末页
 	$("#final").click(function(){
 		pagenum=Math.ceil(($("#pagesum").val())/pagesize);
-		console.log("末页====="+pagenum);
-		$("#three").text(pagenum);
-		$("#two").text(pagenum-1);
-		$("#one").text(pagenum-2);
-		getProperty();
+		console.log("末页====="+pagenum);		
+		getProperty();		
 		$("#final").parent().parent().children().attr("class","page-item");
 		$("#final,#next").parent().attr("class","page-item disabled");
-		$("#three").parent().attr("class","page-item  active");
+		if(pagenum<2){
+			$("#one").text(pagenum);
+			$("#one").parent().attr("class","page-item  active");
+		}else if(pagenum<3){
+			$("#two").text(pagenum);
+			$("#one").text(pagenum-1);
+			$("#two").parent().attr("class","page-item  active");
+		}else{
+			$("#three").text(pagenum);
+			$("#two").text(pagenum-1);
+			$("#one").text(pagenum-2);
+			$("#three").parent().attr("class","page-item  active");
+		}
 	})
 	
 	//增加属性

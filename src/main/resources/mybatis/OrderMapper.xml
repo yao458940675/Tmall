@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java10.Tmall.model.mapper.OrderMapper" >
+	
+	
+	<select id="selectAllOrder" resultMap="OrderRes">
+		select o.id, o.orderCode orderCode,o.ostatus ostatus,ord.itemPrice itemPrice,ord.number number,o.receiver receiver,o.createDate createDate,
+		o.payDate payDate,o.deliveryDate deliveryDate,o.confirmDate confirmDate
+		from order_ o,orderitem ord
+		where o.id=ord.oid 
+	</select>
+	<resultMap type="Order_" id="OrderRes">
+	<result column="id" property="id"/>
+	<result column="orderCode" property="orderCode"/>
+	<result column="ostatus" property="ostatus"/>
+	<result column="receiver" property="receiver"/>
+	<result column="createDate" property="createDate"/>
+	<result column="payDate" property="payDate"/>
+	<result column="deliveryDate" property="deliveryDate"/>
+	<result column="confirmDate" property="confirmDate"/>
+	
+	<collection property="orderItem" ofType="OrderItem" >
+		<result column="itemPrice" property="itemPrice"/>
+		<result column="number" property="number"/>
+	</collection>
+	</resultMap>
+	
+	
+	
+	<update id="updateOrderOstatus" parameterType="int">
+		update order_ set ostatus="已发货" where id=#{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

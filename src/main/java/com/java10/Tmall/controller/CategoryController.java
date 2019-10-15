@@ -23,9 +23,9 @@ public class CategoryController {
 	
 	@RequestMapping("getAllCategories/{pageSize}/{pageNum}")
 	@ResponseBody
-	public List<Category> getAllCategories(@PathVariable int pageSize,@PathVariable int pageNum ){
+	public List<Category> getAllCategories(@PathVariable int pageSize,@PathVariable int pageNum,HttpServletRequest request ){
 		System.out.println(pageSize);
-		return categoryService.getAllCategories(pageSize, pageNum);
+		return categoryService.getAllCategories(pageSize, pageNum,request);
 	}
 
 	@RequestMapping("getCategoryAmount")
@@ -86,6 +86,11 @@ public class CategoryController {
 		categoryService.deleteCategory(id);
 	}
 	
-	
+	//获得分类信息
+	@RequestMapping("getCategoryById/{cid}")
+	@ResponseBody
+	public String getCategoryById(@PathVariable int cid){
+		return categoryService.getCategoryById(cid);
+	}
 	
 }

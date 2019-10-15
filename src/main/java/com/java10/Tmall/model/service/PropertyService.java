@@ -1,5 +1,6 @@
 package com.java10.Tmall.model.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,8 +63,12 @@ public class PropertyService {
 	
 	
 	
-	public List<Property> getPropertiesById( int id){
-		return propertyMapper.getPropertiesById(id);
+	public List<Property> getPropertiesById( int pid,int cid){
+		
+		Map<String,Object> map=new HashMap<>();
+		map.put("pid", pid);
+		map.put("cid", cid);
+		return propertyMapper.getPropertiesById(map);
 	}
 	public void updataPropertieById(String value,int id){
 		PropertyValue pv=new PropertyValue();

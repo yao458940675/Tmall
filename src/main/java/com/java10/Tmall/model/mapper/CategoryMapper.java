@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.java10.Tmall.model.bean.Category;
 
@@ -14,5 +15,6 @@ public interface CategoryMapper {
 	public void saveCategory(Category c);
 	public void deleteCategory(int id);
 	public void updateCategory(Category c);
+	public String getCategoryById(int id);
 
 }

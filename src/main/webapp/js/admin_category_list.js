@@ -87,8 +87,14 @@ $(function(){
 			success:function(msg){
 				$("#table1 tbody").empty();
 				for(var i=0;i<msg.length;i++){
+					var img;
+					if(msg[i].imgFlag==0){
+						img="<img src='img/cimg/0.jpg' height='40' width='500'/>";
+					}else{
+						img="<img src='img/cimg/"+msg[i].id+".jpg' height='40' width='500'/>";
+					}
 					$("#table1 tbody").append("<tr><td>"+msg[i].id+"</td>"+
-					"<td><img src='img/cimg/"+msg[i].id+".jpg' height='40' width='500'/></td><td>"+msg[i].name+"</td>"+
+					"<td>"+img+"</td><td>"+msg[i].name+"</td>"+
 					"<td class='property' data-id='"+msg[i].id+"'><img src='img/icon/book_bookmark_16px_562338_easyicon.net.png' /></td>"+
 					"<td class='product' data-id='"+msg[i].id+"'><img src='img/icon/shopping_cart_16px_562666_easyicon.net.png' /></td>"+
 					"<td class='brush' data-id='"+msg[i].id+"'><img src='img/icon/brush_16px_562342_easyicon.net.png' /></td>"+

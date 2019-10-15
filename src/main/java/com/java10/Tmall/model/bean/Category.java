@@ -3,6 +3,7 @@ package com.java10.Tmall.model.bean;
 public class Category {
 	private int id;
 	private String name;
+	private int imgFlag;
 	public int getId() {
 		return id;
 	}
@@ -15,5 +16,12 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public int getImgFlag() {
+		return imgFlag;
+	}
+	public void setImgFlag(int imgFlag) {
+		this.imgFlag = imgFlag;
+	}
+	
 	
 }

@@ -35,5 +35,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set name=#{name}
 		where id=#{id}
 	</update>
+	
+	<!-- 根据category id获得name -->
+	<select id="getCategoryById" parameterType="int" resultType="String">
+		select name from category
+		where id=#{id}
+	</select>
 
 </mapper>

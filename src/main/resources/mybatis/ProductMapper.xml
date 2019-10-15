@@ -2,48 +2,70 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.java10.Tmall.model.mapper.ProductMapper" >
-	
-	
-	<select id="selectAllProduct" resultMap="ProductRes">
+<mapper namespace="com.java10.Tmall.model.mapper.ProductMapper">
+
+
+	<select id="selectAllProduct"  resultMap="ProductRes">
 		select p.*,c.name cname,pro.id proid
-		from product p,category c,productimage pro
-		where p.cid=c.id and p.id=pro.pid
+		from (select * from product where cid=#{k_cid} limit #{k_beginIndex},#{k_pagesize} ) p
+		join category c on p.cid=c.id
+		left outer join productimage pro on p.id=pro.pid	
 		
+		
+		
+<!--  where p.cid=#{k_cid}-->
 	</select>
 	<resultMap type="Product" id="ProductRes">
-	<result property="id" column="id"/>
-	<result property="name" column="name"/>
-	<result property="subTitle" column="subTitle"/>
-	<result property="originalPrice" column="originalPrice"/>
-	<result property="promotePrice" column="promotePrice"/>
-	<result property="stock" column="stock"/>
-	
-	<association property="pro" javaType="ProductImage" resultMap="PIRes"></association>
-	<association property="cat" javaType="Category" resultMap="CaRes"></association>
-	
-	
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="subTitle" column="subTitle" />
+		<result property="originalPrice" column="originalPrice" />
+		<result property="promotePrice" column="promotePrice" />
+		<result property="stock" column="stock" />
+
+
+		<association property="cat" javaType="Category" resultMap="CaRes"></association>
+		<collection property="pro" ofType="ProductImage">
+			<result property="id" column="proid" />
+			
+		</collection>
+
 	</resultMap>
+
 	
-	<resultMap type="ProductImage" id="PIRes">
-	<result property="id" column="proid"/>
-	</resultMap>
-	
+
 	<resultMap type="Category" id="CaRes">
-	<result property="name" column="cname"/>
+		<result property="name" column="cname" />
 	</resultMap>
-	
-	<!-- 保存产品图片，并返回id -->
-	<insert id="saveProductImage" parameterType="ProductImage" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-		insert into productimage(pid,type)
-		values(#{pid},#{type})
+
+	<insert id="saveProduct" parameterType="Product">
+		insert into
+		product(name,subTitle,originalPrice,promotePrice,stock,cid,createDate)
+		values
+		(#{name},#{subTitle},#{originalPrice},#{promotePrice},#{stock},#{cid},#{createDate})
 	</insert>
-	
-	<!-- 通过pid获得产品图片id数组 -->
-	<select id="getProductImages" parameterType="int" resultType="ProductImage">
-		select id,type from productimage
-		where pid=#{pid}
+
+	<delete id="deleteProductById" parameterType="int">
+		delete from product
+		where id=#{id}
+	</delete>
+
+	<select id="selectProductName" parameterType="int" resultType="Product">
+		select * from product where id=#{id}
 	</select>
+
+	<update id="updateProductById" parameterType="Product">
+		update product set
+		name=#{name},subTitle=#{subTitle},
+		originalPrice=#{originalPrice},
+		promotePrice=#{promotePrice},
+		stock=#{stock},createDate=#{createDate}
+		where id=#{id}
+	</update>
+	<select id="getProduct" parameterType="int" resultType="int" >
+	select count(*) from product where cid=#{cid} 
+	</select>
+	
 </mapper>
 
 

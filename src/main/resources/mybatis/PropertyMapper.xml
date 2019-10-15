@@ -43,44 +43,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update property set name=#{0}
 		where id=#{1}
 	</update>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 		<resultMap type="PropertyValue" id="VM">
-		<result property="id" column="id"/>
-		<result property="pid" column="pid"/>
-		<result property="ptid" column="ptid"/>
-		<result property="value" column="value"/>
-	</resultMap>
+			<result property="id" column="id"/>
+			<result property="pid" column="pid"/>
+			<result property="ptid" column="ptid"/>
+			<result property="value" column="value"/>
+		</resultMap>
 
 	
-	<resultMap type="Property" id="PVM">
-		<result property="id" column="id"/>
-		<result property="cid" column="cid"/>
-		<result property="name" column="name"/>
-		<association property="propertyValue"  column="id"  javaType="PropertyValue"   resultMap="VM"  >
-			
-		
-		</association>
 	
-	
-	</resultMap>
 	
 	<select id="getPropertiesById" parameterType="int" resultMap="PVM">
-		select * from property,propertyvalue where property.id = propertyvalue.ptid and propertyvalue.pid=#{id}
-	
-	
+		select t.ptname, ptv.value, ptv.ptid tptid from propertyvalue ptv
+		right outer join 
+		(select pt.id ptid, pt.name ptname from property pt where cid=#{cid})t
+		on ptv.ptid=t.ptid
+		and ptv.pid=#{pid}
 	</select>
+	<resultMap type="Property" id="PVM">
+		<result property="id" column="tptid"/>
+		<result property="name" column="ptname"/>
+		<association property="propertyValue" javaType="PropertyValue"   resultMap="ProValue"  >
+		</association>
+	</resultMap>
+	
+	<resultMap type="PropertyValue" id="ProValue">
+			<result property="value" column="value"/>
+		</resultMap>
 	
 	<update id="updataPropertieById" parameterType="PropertyValue">	
 	

@@ -79,11 +79,11 @@ public class PropertyController {
 	
 	
 	
-	@RequestMapping("getPropertiesById/{id}")
+	@RequestMapping("getPropertiesById/{pid}/{cid}")
 	@ResponseBody
-	public List<Property> getPropertiesById(@PathVariable int id){
+	public List<Property> getPropertiesById(@PathVariable int pid,@PathVariable int cid){
 		
-		return propertyService.getPropertiesById(id);
+		return propertyService.getPropertiesById(pid,cid);
 		
 	}
 	@RequestMapping("updataPropertieById/{value}/{id}")

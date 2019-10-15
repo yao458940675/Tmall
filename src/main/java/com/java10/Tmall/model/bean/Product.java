@@ -1,6 +1,7 @@
 package com.java10.Tmall.model.bean;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Product {
 
@@ -12,7 +13,7 @@ public class Product {
 	private int stock;
 	private int cid;
 	private Date createDate;
-	private ProductImage pro;
+	private List<ProductImage> pro;
 	private Category cat;
 	public Category getCat() {
 		return cat;
@@ -20,10 +21,11 @@ public class Product {
 	public void setCat(Category cat) {
 		this.cat = cat;
 	}
-	public ProductImage getPro() {
+	
+	public List<ProductImage> getPro() {
 		return pro;
 	}
-	public void setPro(ProductImage pro) {
+	public void setPro(List<ProductImage> pro) {
 		this.pro = pro;
 	}
 	public int getId() {

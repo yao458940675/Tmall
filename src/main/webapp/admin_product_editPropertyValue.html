@@ -26,6 +26,7 @@
 		
 		
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/admin_nav.js"></script>
 	</head>
 	</head>
 	<body>
@@ -39,23 +40,25 @@
 			   天猫后台
 			</span>
 			<ul class="navbar-nav">
-				<li class="nav-item active">
+				<li class="nav-item active" id="nav1">
 					<a class="nav-link" href="#">分类管理</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" id="nav2">
 					<a class="nav-link" href="#">用户管理</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" id="nav3">
 					<a class="nav-link" href="#">订单管理</a>
 				</li>
 				
 			</ul>
 		</nav>
 			
-			<div id="nav" class="row" style="margin-top: 20px;">
-
-			  	<div class="col-sm-10 bg-light text-dark font-weight-light text-lowercase" style="margin-left: 60px;" > <a href="">所有分类</a>&nbsp; <a href="">平板电视</a>&nbsp; <span id="nef"></span> / 编辑产品属性</div>
-			</div>
+			<nav class="breadcrumb">
+				<a class="breadcrumb-item" href="#">所有分类</a>
+				<a class="breadcrumb-item" href="#" id="cname"></a>
+				<a class="breadcrumb-item" href="#" id="pname"></a>
+				<span class="breadcrumb-item active">编辑产品属性</span>
+			</nav>
 	
 			<div id="main" style="margin-top: 20px;">			
 				<div class="row" id="mainrow">
